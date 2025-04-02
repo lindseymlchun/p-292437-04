@@ -3,6 +3,7 @@ import React from "react";
 import { BottomNav } from "@/components/navigation/BottomNav";
 import { useUser } from "@/context/UserContext";
 import { Button } from "@/components/ui/button";
+import { getAllFriends } from "@/data/mockData";
 
 const Profile = () => {
   const { user } = useUser();
@@ -45,7 +46,7 @@ const Profile = () => {
                       <img 
                         src={friend.avatar} 
                         alt={friend.name} 
-                        className="w-10 h-10 rounded-full mr-3"
+                        className="w-10 h-10 rounded-full mr-3 object-cover"
                       />
                       <span>{friend.name}</span>
                     </div>
@@ -95,13 +96,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-function getAllFriends() {
-  // This is just for UI display - the real function is in the mockData.ts file
-  return [
-    { id: "user-2", points: 780 },
-    { id: "user-4", points: 600 },
-    { id: "user-1", points: 450 },
-    { id: "user-3", points: 320 },
-  ];
-}

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   LocationIcon,
   PriceIcon,
@@ -16,6 +16,7 @@ interface EventCardProps {
 }
 
 export const EventCard: React.FC<EventCardProps> = ({ event }) => {
+  const navigate = useNavigate();
   const { attendEvent, shareEvent, isAttending, hasShared } = useUser();
   const { id, image, title, day, location, price, tags, isTrending, pointsForAttending, pointsForSharing } = event;
   
@@ -25,6 +26,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const handleShare = (e: React.MouseEvent) => {
     e.preventDefault();
     shareEvent(id);
+    navigate("/share");
   };
 
   const handleAttend = (e: React.MouseEvent) => {
@@ -76,12 +78,12 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
             )}
 
             <div className="flex items-center justify-between mt-2.5">
-              <div className="flex gap-2">
+              <div className="flex gap-4">
                 <button 
                   type="button" 
                   aria-label="Share" 
                   onClick={handleShare}
-                  className={`flex items-center justify-center ${shared ? 'bg-sunset-pink/30' : ''} p-1 rounded-full`}
+                  className={`flex items-center justify-center ${shared ? 'bg-sunset-pink/30' : ''} p-1 rounded-full h-8 w-16`}
                 >
                   <ShareIcon />
                   <span className="text-[8px] ml-1">+{pointsForSharing}pts</span>
@@ -90,7 +92,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
                   type="button" 
                   aria-label="Attend" 
                   onClick={handleAttend}
-                  className={`flex items-center justify-center ${attending ? 'bg-sunset-orange/30' : ''} p-1 rounded-full`}
+                  className={`flex items-center justify-center ${attending ? 'bg-sunset-orange/30' : ''} p-1 rounded-full h-8 w-16`}
                 >
                   <HeartIcon />
                   <span className="text-[8px] ml-1">+{pointsForAttending}pts</span>

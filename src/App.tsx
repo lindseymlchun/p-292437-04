@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
 import EventDetail from "./pages/EventDetail";
+import Share from "./pages/Share";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/profile" element={<Profile />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/event/:id" element={<EventDetail />} />
+            <Route path="/share" element={<Share />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

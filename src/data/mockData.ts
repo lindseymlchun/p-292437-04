@@ -2,10 +2,18 @@
 import { User } from "../types/user";
 import { Event } from "../types/event";
 
+// Fixed avatar URLs
+const avatars = {
+  alex: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  taylor: "https://images.unsplash.com/photo-1645378999013-95abebf5f19a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  jordan: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  casey: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+};
+
 export const currentUser: User = {
   id: "user-1",
   name: "Alex Johnson",
-  avatar: "https://cdn.builder.io/api/v1/image/assets/TEMP/7c08104f3821c2a87c64034cdeb328499f50de28",
+  avatar: avatars.alex,
   email: "alex@example.com",
   graduationYear: 2023,
   university: "Stanford University",
@@ -14,19 +22,19 @@ export const currentUser: User = {
     {
       id: "user-2",
       name: "Taylor Swift",
-      avatar: "https://cdn.builder.io/api/v1/image/assets/TEMP/2121a9ce94e3a43b9e6b48847c75e4dacd0e8b7e",
+      avatar: avatars.taylor,
       points: 780,
     },
     {
       id: "user-3",
       name: "Jordan Lee",
-      avatar: "https://cdn.builder.io/api/v1/image/assets/TEMP/665807209513b8844334af2281e226ceaa3fcf1d",
+      avatar: avatars.jordan,
       points: 320,
     },
     {
       id: "user-4",
       name: "Casey Kim",
-      avatar: "https://cdn.builder.io/api/v1/image/assets/TEMP/9816c9d930bbcbdb130596d31bd3cecf9745e118",
+      avatar: avatars.casey,
       points: 600,
     }
   ],
@@ -83,7 +91,7 @@ export const mockEvents: Event[] = [
   {
     id: "event-4",
     title: "New Grad Tech Networking",
-    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/53d46f6ab54003d84df02090336fd143909b6321",
+    image: "https://images.unsplash.com/photo-1591115765373-5207764f72e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     day: "Tuesday",
     date: "Mar 19",
     time: "6:30 PM",
@@ -103,7 +111,7 @@ export const getAllFriends = (): User[] => {
     {
       id: "user-2",
       name: "Taylor Swift",
-      avatar: "https://cdn.builder.io/api/v1/image/assets/TEMP/2121a9ce94e3a43b9e6b48847c75e4dacd0e8b7e",
+      avatar: avatars.taylor,
       email: "taylor@example.com",
       graduationYear: 2023,
       university: "Princeton University",
@@ -115,7 +123,7 @@ export const getAllFriends = (): User[] => {
     {
       id: "user-3",
       name: "Jordan Lee",
-      avatar: "https://cdn.builder.io/api/v1/image/assets/TEMP/665807209513b8844334af2281e226ceaa3fcf1d",
+      avatar: avatars.jordan,
       email: "jordan@example.com",
       graduationYear: 2023,
       university: "Yale University",
@@ -127,7 +135,7 @@ export const getAllFriends = (): User[] => {
     {
       id: "user-4",
       name: "Casey Kim",
-      avatar: "https://cdn.builder.io/api/v1/image/assets/TEMP/9816c9d930bbcbdb130596d31bd3cecf9745e118",
+      avatar: avatars.casey,
       email: "casey@example.com",
       graduationYear: 2022,
       university: "Harvard University",
