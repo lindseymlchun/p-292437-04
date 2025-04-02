@@ -11,7 +11,10 @@ const Share = () => {
   const { user } = useUser();
   
   const handleShare = (platform: string) => {
-    toast.success(`Shared with ${platform}!`);
+    toast.success(`Shared with ${platform}!`, {
+      duration: 3000,
+      dismissible: true
+    });
     setTimeout(() => navigate("/"), 1500);
   };
 
@@ -73,14 +76,17 @@ const Share = () => {
                       <img 
                         src={friend.avatar} 
                         alt={friend.name} 
-                        className="w-8 h-8 rounded-full mr-2"
+                        className="w-8 h-8 rounded-full mr-2 object-cover"
                       />
                       <span>{friend.name}</span>
                     </div>
                     <Button 
                       size="sm"
                       onClick={() => {
-                        toast.success(`Shared with ${friend.name}!`);
+                        toast.success(`Shared with ${friend.name}!`, {
+                          duration: 3000,
+                          dismissible: true
+                        });
                       }}
                       className="bg-sunset-pink hover:bg-sunset-pink/90 text-xs"
                     >

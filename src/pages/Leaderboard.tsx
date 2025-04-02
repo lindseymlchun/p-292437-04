@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { BottomNav } from "@/components/navigation/BottomNav";
 import { getFriendLeaderboard } from "@/data/mockData";
@@ -32,7 +33,7 @@ const Leaderboard = () => {
                       <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
                     </div>
                     <div 
-                      className={`absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center
+                      className={`absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold
                         ${index === 0 ? 'bg-[#FFD700]' : index === 1 ? 'bg-[#C0C0C0]' : 'bg-[#CD7F32]'}`}
                     >
                       {index + 1}
@@ -52,7 +53,7 @@ const Leaderboard = () => {
                     <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white">
                       <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs">
+                    <div className="absolute -top-1 -right-1 w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold">
                       {index + 4}
                     </div>
                   </div>

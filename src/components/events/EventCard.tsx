@@ -25,45 +25,47 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
 
   const handleShare = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     shareEvent(id);
     navigate("/share");
   };
 
   const handleAttend = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     attendEvent(id);
   };
 
   return (
     <Link to={`/event/${id}`} className="block">
-      <article className="bg-[#FEFFEC] p-[15px] rounded-lg border-[3px] border-[#BF8FF3]">
+      <article className="bg-[#FEFFEC] p-[15px] rounded-lg border-[3px] border-[#BF8FF3] overflow-hidden">
         <div className="flex gap-[15px]">
           <img
             src={image}
             alt={title}
-            className="w-[111px] h-[126px] rounded-[8px] border-[1px] border-[rgba(0,0,0,0.5)] object-cover"
+            className="w-[111px] h-[126px] rounded-[8px] border-[1px] border-[rgba(0,0,0,0.5)] object-cover flex-shrink-0"
           />
-          <div className="flex-1">
-            <div className="flex justify-between items-start">
-              <h3 className="text-base font-bold text-[#2A3F65]">{title}</h3>
-              <span className="text-sm">{day}</span>
+          <div className="flex-1 min-w-0">
+            <div className="flex justify-between items-start gap-2">
+              <h3 className="text-base font-bold text-[#2A3F65] line-clamp-2">{title}</h3>
+              <span className="text-sm whitespace-nowrap">{day}</span>
             </div>
 
-            <div className="flex items-center gap-2 mt-2.5">
-              <LocationIcon />
-              <span className="text-[10px]">{location}</span>
+            <div className="flex items-center gap-2 mt-2.5 overflow-hidden">
+              <LocationIcon className="flex-shrink-0" />
+              <span className="text-[10px] truncate">{location}</span>
             </div>
 
-            <div className="flex items-center gap-2 mt-2.5">
-              <PriceIcon />
-              <span className="text-[10px]">{price}</span>
+            <div className="flex items-center gap-2 mt-2.5 overflow-hidden">
+              <PriceIcon className="flex-shrink-0" />
+              <span className="text-[10px] truncate">{price}</span>
             </div>
 
             <div className="flex gap-[7px] mt-2.5 flex-wrap">
               {tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="bg-white text-[9px] px-2.5 py-0.5 rounded-lg"
+                  className="bg-white text-[9px] px-2.5 py-0.5 rounded-lg whitespace-nowrap"
                 >
                   {tag}
                 </span>
@@ -72,18 +74,18 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
 
             {isTrending && (
               <div className="flex items-center gap-2 mt-2.5">
-                <TrendingIcon />
+                <TrendingIcon className="flex-shrink-0" />
                 <span className="text-[10px] text-[#E0A000]">Trending Now</span>
               </div>
             )}
 
             <div className="flex items-center justify-between mt-2.5">
-              <div className="flex gap-4">
+              <div className="flex gap-2">
                 <button 
                   type="button" 
                   aria-label="Share" 
                   onClick={handleShare}
-                  className={`flex items-center justify-center ${shared ? 'bg-sunset-pink/30' : ''} p-1 rounded-full h-8 w-16`}
+                  className={`flex items-center justify-center ${shared ? 'bg-sunset-pink/30' : ''} p-1 rounded-full h-8 w-[60px]`}
                 >
                   <ShareIcon />
                   <span className="text-[8px] ml-1">+{pointsForSharing}pts</span>
@@ -92,7 +94,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
                   type="button" 
                   aria-label="Attend" 
                   onClick={handleAttend}
-                  className={`flex items-center justify-center ${attending ? 'bg-sunset-orange/30' : ''} p-1 rounded-full h-8 w-16`}
+                  className={`flex items-center justify-center ${attending ? 'bg-sunset-orange/30' : ''} p-1 rounded-full h-8 w-[60px]`}
                 >
                   <HeartIcon />
                   <span className="text-[8px] ml-1">+{pointsForAttending}pts</span>

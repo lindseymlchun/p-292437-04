@@ -4,9 +4,15 @@ import { BottomNav } from "@/components/navigation/BottomNav";
 import { useUser } from "@/context/UserContext";
 import { Button } from "@/components/ui/button";
 import { getAllFriends } from "@/data/mockData";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { user } = useUser();
+  const navigate = useNavigate();
+
+  const handleInviteFriends = () => {
+    navigate("/share");
+  };
 
   return (
     <div className="w-full min-h-screen bg-[radial-gradient(50%_50%_at_50%_50%,#C997D6_0%,#FF8DAF_30%,#EEC48F_75%,#FFF9C1_100%)]">
@@ -57,7 +63,10 @@ const Profile = () => {
                 ))}
               </div>
               
-              <Button className="w-full mt-4 bg-sunset-purple hover:bg-sunset-purple/90">
+              <Button 
+                className="w-full mt-4 bg-sunset-purple hover:bg-sunset-purple/90"
+                onClick={handleInviteFriends}
+              >
                 Invite Friends
               </Button>
             </div>

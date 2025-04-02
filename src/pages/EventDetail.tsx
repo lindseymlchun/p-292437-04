@@ -29,7 +29,7 @@ const EventDetail = () => {
 
   return (
     <div className="w-full min-h-screen bg-[radial-gradient(50%_50%_at_50%_50%,#C997D6_0%,#FF8DAF_30%,#EEC48F_75%,#FFF9C1_100%)]">
-      <div className="flex flex-col w-full pb-24">
+      <div className="flex flex-col w-full pb-28">
         <div className="relative h-64">
           <img 
             src={event.image} 
@@ -47,7 +47,7 @@ const EventDetail = () => {
         </div>
 
         <div className="bg-[#FEFFEC] rounded-t-3xl -mt-6 p-5 flex-1">
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start gap-4 mb-4">
             <h1 className="text-2xl font-bold text-[#2A3F65]">{event.title}</h1>
             <div className="text-right">
               <div className="text-sm font-medium">{event.day}</div>
@@ -55,24 +55,24 @@ const EventDetail = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 mt-4">
+          <div className="flex items-center gap-2 mt-5">
             <LocationIcon />
             <span className="text-sm">{event.location}</span>
           </div>
 
-          <div className="flex items-center gap-2 mt-2">
+          <div className="flex items-center gap-2 mt-3">
             <PriceIcon />
             <span className="text-sm">{event.price}</span>
           </div>
 
           {event.isTrending && (
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex items-center gap-2 mt-3">
               <TrendingIcon />
               <span className="text-sm text-[#E0A000]">Trending Now</span>
             </div>
           )}
 
-          <div className="flex gap-2 mt-4 flex-wrap">
+          <div className="flex gap-2 mt-5 flex-wrap">
             {event.tags.map((tag, index) => (
               <span
                 key={index}
@@ -121,7 +121,7 @@ const EventDetail = () => {
             </p>
 
             <div className="mt-4">
-              <div className="flex items-center mb-1">
+              <div className="flex items-center mb-2">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
                   <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" fill="#C997D6" fillOpacity="0.2" stroke="#C997D6" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M8 5.5V8L9.5 9.5" stroke="#C997D6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -129,9 +129,9 @@ const EventDetail = () => {
                 <span className="text-sm">{event.attendees} people attending</span>
               </div>
               <div className="flex -space-x-2">
-                <img className="w-8 h-8 rounded-full border-2 border-white" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2121a9ce94e3a43b9e6b48847c75e4dacd0e8b7e" alt="Person" />
-                <img className="w-8 h-8 rounded-full border-2 border-white" src="https://cdn.builder.io/api/v1/image/assets/TEMP/665807209513b8844334af2281e226ceaa3fcf1d" alt="Person" />
-                <img className="w-8 h-8 rounded-full border-2 border-white" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9816c9d930bbcbdb130596d31bd3cecf9745e118" alt="Person" />
+                <img className="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Person" />
+                <img className="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1645378999013-95abebf5f19a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Person" />
+                <img className="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Person" />
                 <div className="flex items-center justify-center w-8 h-8 rounded-full border-2 border-white bg-sunset-orange text-white text-xs">
                   +{event.attendees - 3}
                 </div>
@@ -149,7 +149,10 @@ const EventDetail = () => {
               {!attending && <span className="ml-1">+{event.pointsForAttending}pts</span>}
             </Button>
             <Button 
-              onClick={() => shareEvent(event.id)} 
+              onClick={() => {
+                shareEvent(event.id);
+                navigate("/share");
+              }} 
               className={`flex-1 ${shared ? 'bg-sunset-pink' : 'bg-sunset-pink/80'} hover:bg-sunset-pink`}
               disabled={shared}
             >
