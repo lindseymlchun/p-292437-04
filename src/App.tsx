@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
 import EventDetail from "./pages/EventDetail";
 import Share from "./pages/Share";
+import ShareWithFriends from "./pages/ShareWithFriends";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/event/:id" element={<EventDetail />} />
             <Route path="/share" element={<Share />} />
+            <Route path="/share-with-friends" element={<ShareWithFriends />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
