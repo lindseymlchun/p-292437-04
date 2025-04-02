@@ -1,3 +1,4 @@
+
 import React from "react";
 import { MenuIcon, FilterIcon } from "@/components/icons";
 
@@ -18,7 +19,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       onSubmit={handleSubmit}
       className="w-[360px] max-w-[720px] mx-auto px-4"
     >
-      <div className="flex items-center gap-1 border bg-[#FEFFEC] p-1 rounded-[28px] border-[#E0E0E0]">
+      <div className="flex items-center gap-1 border bg-[#FEFFEC] p-1 rounded-[28px] border-[#E0E0E0] shadow-sm">
         <button type="button" className="p-2">
           <MenuIcon />
         </button>
