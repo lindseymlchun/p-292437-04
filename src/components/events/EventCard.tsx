@@ -52,12 +52,12 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
             </div>
 
             <div className="flex items-center gap-2 mt-2.5 overflow-hidden">
-              <LocationIcon className="flex-shrink-0" />
+              <LocationIcon />
               <span className="text-[10px] truncate">{location}</span>
             </div>
 
             <div className="flex items-center gap-2 mt-2.5 overflow-hidden">
-              <PriceIcon className="flex-shrink-0" />
+              <PriceIcon />
               <span className="text-[10px] truncate">{price}</span>
             </div>
 
@@ -74,7 +74,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
 
             {isTrending && (
               <div className="flex items-center gap-2 mt-2.5">
-                <TrendingIcon className="flex-shrink-0" />
+                <TrendingIcon />
                 <span className="text-[10px] text-[#E0A000]">Trending Now</span>
               </div>
             )}

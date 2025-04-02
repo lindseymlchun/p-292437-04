@@ -65,7 +65,9 @@ export const BottomNav = () => {
             className={`flex flex-col items-center ${location.pathname === "/profile" ? "text-sunset-orange" : ""}`}
             aria-label="Profile"
           >
-            <UserIcon className="mb-1" />
+            <div className="mb-1">
+              <UserIcon />
+            </div>
             <span className="text-xs">Profile</span>
           </Link>
         </div>
